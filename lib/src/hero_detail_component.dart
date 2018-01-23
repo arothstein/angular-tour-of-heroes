@@ -28,5 +28,10 @@ class HeroDetailComponent implements OnInit {
     if (id != null) hero = await (_heroService.getHero(id));
   }
 
+  Future<Null> save() async {
+    await _heroService.update(hero);
+    goBack();
+  }
+
   void goBack() => _location.back();
 }
